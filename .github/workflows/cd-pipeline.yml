@@ -1,5 +1,4 @@
 name: CD Pipeline
-
 # WHEN does this run? Only after CI Pipeline succeeds!
 on:
   workflow_run:
