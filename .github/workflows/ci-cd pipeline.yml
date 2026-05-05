@@ -37,7 +37,6 @@ jobs:
           project: 'MyProject'
           path: '.'
           format: 'HTML'
-        # Removed incorrect JAVA_HOME override
 
       - name: Build Docker images
         run: |
