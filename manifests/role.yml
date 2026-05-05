@@ -1,0 +1,14 @@
+# This defines WHAT the "jenkins" identity is allowed to do
+# Think of it as a job description
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: app-role
+  namespace: webapps
+rules:
+  - apiGroups: ["", "apps", "autoscaling", "batch", "extensions", "policy", "rbac.authorization.k8s.io"]
+    resources: ["pods", "deployments", "services", "configmaps", "daemonsets", "events",
+                "endpoints", "horizontalpodautoscalers", "ingress", "jobs", "namespaces",
+                "nodes", "persistentvolumes", "persistentvolumeclaims", "replicasets",
+                "replicationcontrollers", "serviceaccounts", "statefulsets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

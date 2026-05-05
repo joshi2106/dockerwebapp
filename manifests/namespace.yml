@@ -1,0 +1,5 @@
+# Create the namespace first (it's like a folder inside Kubernetes)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: webapps
