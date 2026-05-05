@@ -34,7 +34,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn sonar:sonar -Dsonar.projectKey=Devops Webapp
+        run: mvn sonar:sonar -Dsonar.projectKey=webapps
 
       - name: OWASP dependency check
         uses: dependency-check/Dependency-Check_Action@main
