@@ -37,6 +37,8 @@ jobs:
           project: 'MyProject'
           path: '.'
           format: 'HTML'
+        env:
+          JAVA_HOME: /opt/jdk
 
       - name: Build Docker images
         run: |
