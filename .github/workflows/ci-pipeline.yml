@@ -37,7 +37,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}       # stored in GitHub Secrets
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # your SonarQube server URL
-        run: mvn sonar:sonar -Dsonar.projectKey=MyProject
+        run: mvn sonar:sonar -Dsonar.projectKey=mediaapp
 
       # STEP 6: OWASP Dependency Check - "Robot, check if any libraries have known hacks"
       - name: OWASP Dependency Check
