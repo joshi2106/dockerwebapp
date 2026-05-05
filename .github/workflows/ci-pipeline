@@ -3,7 +3,7 @@ name: CI Pipeline
 # WHEN does this run? Every time you push to the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build-and-push:
