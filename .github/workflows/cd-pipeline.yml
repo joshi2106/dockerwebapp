@@ -1,12 +1,9 @@
 name: CD Pipeline
 # WHEN does this run? Only after CI Pipeline succeeds!
 on:
-  workflow_run:
-    workflows: ["CI Pipeline"]
-    types:
-      - completed
-    branches:
-      - master
+  push:
+    branches: [ master ]
+
 
 jobs:
   deploy:
