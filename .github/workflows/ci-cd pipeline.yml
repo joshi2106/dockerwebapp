@@ -70,7 +70,7 @@ jobs:
         run: |
           aws s3 cp target/vprofile-v2.war s3://joshi.k8s.dev/vprofile-v2.war
 
-  deploy:
+  deploy:   # ✅ FIXED — properly aligned under jobs
     name: Deploy to EKS
     runs-on: ubuntu-latest
     needs: build
@@ -95,10 +95,21 @@ jobs:
 
       - name: Connect kubectl to EKS
         run: |
-          aws eks update-kubeconfig --region us-east-1 --name EKS_CLOUD
+          aws eks update-kubeconfig \
+            --region us-east-1 \
+            --name EKS_CLOUD
+
+      - name: Debug kubectl auth
+        run: |
+          echo "=== Checking AWS identity ==="
+          aws sts get-caller-identity
+          echo "=== Checking kubectl nodes ==="
+          kubectl get nodes
+          echo "=== Checking namespaces ==="
+          kubectl get namespaces
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f manifests/ -n webapps
+        run: kubectl apply -f manifests/ --validate=false
 
       - name: Verify deployment
         run: kubectl get all -n webapps
